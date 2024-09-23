@@ -1,6 +1,7 @@
 #TODO
 - return to default BD input file names schema
 - replace local container by public Seurat image
+- for local container: find out if possible to cache pip/R during build
 - interactive shiny app showing expression of marker genes over umap and some statistics
 - expand to whole transcriptome (WTA) assay : only plot expression for the targets of the guides, not for all genes.
 - fake / synthetic test data

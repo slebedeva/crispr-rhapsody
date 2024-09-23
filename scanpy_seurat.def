@@ -39,6 +39,7 @@ From: satijalab/seurat:latest
   R --no-echo --no-restore --no-save -e "install.packages(c('data.table','lattice'))"
   R --no-echo --no-restore --no-save -e "install.packages('IRkernel')"
   R --no-echo --no-restore --no-save -e "IRkernel::installspec(user=F, sys_prefix=T)"
+  R --no-echo --no-restore --no-save -e "devtools::install_github('satijalab/seurat-data')"
   R --no-echo --no-restore --no-save -e "SeuratData::InstallData(ds = c('pbmc3k','thp1.eccite'))"
   R --no-echo --no-restore --no-save -e "devtools::install_github('satijalab/sctransform', ref='develop')"
   # Install packages for BD scripts

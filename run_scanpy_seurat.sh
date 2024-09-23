@@ -14,5 +14,5 @@ localdir=".local_seurat"
 mkdir -p $localdir
 
 # run container starting notebooks from this directory
-singularity exec -B ${localdir}:${HOME}/.local /home/${USER}/containers/scanpy_seurat.sif jupyter-lab
+singularity exec -B ${localdir}:${HOME}/.local scanpy_seurat.sif jupyter-lab
 

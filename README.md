@@ -21,7 +21,13 @@ This workflow will take count matrices coming from BD Rhapsody type of targeted 
     data_dir: "data"
     ```
 
-2. Make sure your input data files are called like this: `[SAMPLE]_DBEC_MolsPerCell_correct_gene_names.csv`.
+2. Make sure your input data files are called like `[SAMPLE]_DBEC_MolsPerCell_correct_gene_names.csv`, where [SAMPLE] is your sample name. Thus, an example input data will look like:
+    ```
+    ├── data
+    │   ├── [SAMPLE1]_DBEC_MolsPerCell_correct_gene_names.csv
+    │   ├── [SAMPLE2]_DBEC_MolsPerCell_correct_gene_names.csv
+
+    ```
 
 3. (Optional) check that paths are alright by performing a snakemake dry run:
     ```
