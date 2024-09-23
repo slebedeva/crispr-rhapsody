@@ -1,3 +1,5 @@
+snakemake is in pyenv environment.
+
 Container and all the data are in the backup drive One Touch, be sure to mount it before running .sh
 Also copied container to ~/containers.
 

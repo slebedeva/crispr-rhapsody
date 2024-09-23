@@ -1,0 +1,19 @@
+# R
+Rplots.pdf
+
+# python
+*/.ipynb_checkpoints/*
+
+# pyenv
+.python-version
+
+# apptainer mounts and cache
+.local_*
+
+# data
+data
+
+# pipeline
+logs
+results
+.snakemake
