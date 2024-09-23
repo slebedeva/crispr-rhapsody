@@ -5,6 +5,7 @@
 
 library("Seurat")
 library("SeuratDisk")
+library("ggplot2")
 
 
 # functions to separate guides and genes
@@ -118,11 +119,13 @@ for(target_gene in target_genes){
 DE_df = purrr::map_df(DE_list, rbind, .id="guide_target")
 
 # 7. visualize and save umap
-#guides = guides |> FindVariableFeatures() |> ScaleData()
-#guides = RunPCA(object = guides)
-#guides = RunUMAP(object = guides,  dims = 1:40)
-#guides_p = DimPlot(guides, group.by='target_gene', split.by='target_gene', ncol=4, reduction = "umap")
-#saveRDS(guides_p, file = "umap.Rds")
+message("Performing dimensionality reduction...")
+genes = genes |> FindVariableFeatures() |> ScaleData()
+genes = RunPCA(object = genes)
+genes = RunUMAP(object = genes,  dims = 1:40)
+#genes_p = DimPlot(genes, group.by='target_gene', split.by='target_gene', ncol=4)
+genes_p = DimPlot(genes, reduction = "umap", pt.size = 1) + theme(legend.position = "bottom")
+ggsave(plot = genes_p, filename = file.path("results", "plots", paste0(myproject, "_umap.png")), dpi = 150, width = 10, height = 10, bg = "white")
 
 # save data table 
 #saveRDS(DE_df, file = paste0(myproject, "_differential_expression.Rds"))
