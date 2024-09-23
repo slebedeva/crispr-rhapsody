@@ -8,6 +8,7 @@
 - (snakemake report)
 - R : separate effective and non-effective guideRNAs
 - R : maybe try manually input variable genes, if possible, for a better umap. Of course if we cheat and keep guide genes in the same matrix, they will be dirivng the clustering, but this carries no information but convenience.
+- github actions?
 
 Snakemake is in pyenv environment.
 
