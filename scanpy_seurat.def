@@ -1,7 +1,7 @@
 
 Bootstrap: docker
 
-From: satijalab/seurat:latest
+From: satijalab/seurat:latest #4.3.0
 
 %setup
 

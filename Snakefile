@@ -20,7 +20,7 @@ rule run_seurat:
         stderr = "logs/run_seurat.{sample}_err.log",
         stdout = "logs/run_seurat.{sample}_out.log"
     container:
-        "https://depot.galaxyproject.org/singularity/r-seurat:3.0.2--r36h0357c0b_1"
+        "docker://satijalab/seurat:4.3.0"
     shell:
         "Rscript code/short_minimal_pipeline.R {input}"
 

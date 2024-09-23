@@ -7,7 +7,8 @@ Rplots.pdf
 # pyenv
 .python-version
 
-# apptainer mounts and cache
+# apptainer mounts , images and cache
+*.sif
 .local_*
 Touch
 .Touch

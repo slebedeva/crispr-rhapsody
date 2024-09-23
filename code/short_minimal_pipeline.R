@@ -4,7 +4,7 @@
 # libraries
 
 library("Seurat")
-library("SeuratDisk")
+#library("SeuratDisk") #not present in public container
 library("ggplot2")
 
 
@@ -133,5 +133,9 @@ ggsave(plot = genes_p, filename = file.path("results", "plots", paste0(myproject
 data.table::fwrite(tibble::rownames_to_column(DE_df, 'gene_name'), file = file.path(outdir ,paste0(myproject, "_differential_expression.csv")))
 
 # save Seurat objects
-SaveH5Seurat(object=guides, filename = file.path(outdir,paste0(myproject,"_guides.h5Seurat")), overwrite = TRUE)
-SaveH5Seurat(object=genes, filename = file.path(outdir,paste0(myproject,"_genes.h5Seurat")), overwrite = TRUE)
+#SaveH5Seurat(object=guides, filename = file.path(outdir,paste0(myproject,"_guides.h5Seurat")), overwrite = TRUE)
+#SaveH5Seurat(object=genes, filename = file.path(outdir,paste0(myproject,"_genes.h5Seurat")), overwrite = TRUE)
+
+# save as Rds if using public container
+saveRDS(guides, file.path(outdir,paste0(myproject,"_guides.Rds"))
+saveRDS(genes, file.path(outdir,paste0(myproject,"_genes.Rds"))
