@@ -1,4 +1,4 @@
-## run this from the directory where container itself is
+# build a container which contains both tools for single cell analysis: scanpy and seurat
 
 #!/bin/bash
 
@@ -13,6 +13,5 @@ export JUPYTER_RUNTIME_DIR=${HOME}/tmp
 localdir=".local_seurat"
 mkdir -p $localdir
 
-# run container starting notebooks from this directory
-singularity exec -B ${localdir}:${HOME}/.local /home/${USER}/containers/scanpy_seurat.sif jupyter-lab
-
+# build container preserving environmental variables (-E)
+sudo -E apptainer build scanpy_seurat.sif scanpy_seurat.def

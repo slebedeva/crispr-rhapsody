@@ -1,0 +1,50 @@
+
+Bootstrap: docker
+
+From: satijalab/seurat:latest
+
+%setup
+
+%post
+
+  # install system dpt 
+  apt-get update
+  apt install -y libfontconfig1-dev libharfbuzz-dev libfribidi-dev
+  apt install -y libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev libgit2-dev
+
+  # downgrade numpy because scanpy is broken then
+  pip3 install numpy==1.23.1 
+
+  # install notebook and plotting basics
+  pip3 install jupyterlab
+  pip3 install ipywidgets
+  pip3 install pandas
+  pip3 install seaborn
+  
+  # install scanpy
+  pip3 install scanpy
+  pip3 install leidenalg
+
+  # bio python
+  pip3 install scikit-bio
+
+  # sklearn
+  pip3 install scikit-learn
+
+  # R dpt
+  # Install missing packages for tutorial
+  R --no-echo --no-restore --no-save -e "install.packages(c('devtools'))"
+  R --no-echo --no-restore --no-save -e "devtools::install_github('satijalab/seurat-data')"
+  R --no-echo --no-restore --no-save -e "install.packages('metap')"
+  R --no-echo --no-restore --no-save -e "install.packages(c('data.table','lattice'))"
+  R --no-echo --no-restore --no-save -e "install.packages('IRkernel')"
+  R --no-echo --no-restore --no-save -e "IRkernel::installspec(user=F, sys_prefix=T)"
+  R --no-echo --no-restore --no-save -e "SeuratData::InstallData(ds = c('pbmc3k','thp1.eccite'))"
+  R --no-echo --no-restore --no-save -e "devtools::install_github('satijalab/sctransform', ref='develop')"
+  # Install packages for BD scripts
+  R --no-echo --no-restore --no-save -e "install.packages(c('tidyverse'))"
+  R --no-echo --no-restore --no-save -e "devtools::install_github('vibscc/DALI')"
+  R --no-echo --no-restore --no-save -e "devtools::install_github('dynverse/dyno')"
+
+%runscript
+  R

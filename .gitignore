@@ -9,6 +9,8 @@ Rplots.pdf
 
 # apptainer mounts and cache
 .local_*
+Touch
+.Touch
 
 # data
 data
