@@ -43,10 +43,10 @@ This workflow will take count matrices coming from BD Rhapsody type of targeted 
 
 We start with the count matrix which is produced by the [BD internal mapping pipeline](https://www.bdbiosciences.com/en-us/products/software/rhapsody-sequence-analysis-pipeline). This pipeline takes care of alignment to reference, quality filtering and error correction. It has cell ID in rows and gene ID in columns:
 
-Cell_Index | Gene1 | Gene2 | Gene3
----|---|---|---
-7836734 | 0 | 68 | 0 
-4277806 | 0 | 25 | 0
+Cell_Index | Gene1 | Gene2 | Gene3 | Guide1 | Guide2 | Guide3
+---|---|---|---|---|---|---
+7836734 | 0 | 68 | 0 | 0 | 0 | 0 
+4277806 | 0 | 25 | 0 | 0 | 10 | 0 
 
 In our specific case, there is also a "guide RNA gene" included in the panel, which allows us to identify the guide(s) expressed in each cell.
 
